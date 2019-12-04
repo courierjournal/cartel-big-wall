@@ -1,0 +1,34 @@
+{
+  "name": "cartel-big-wall",
+  "version": "1.0.0",
+  "description": "",
+  "data": "https://docs.google.com/spreadsheets/d/1oydkTet9uol90mb82M9R8newrw27tiwYN7zIu1jdozE/edit?usp=sharing",
+  "scripts": {
+    "generate-markers": "node tools/generate-markers.js",
+    "generate-map": "node tools/generate-map.js",
+    "clean": "rm -rf .cache && rm -rf dist",
+    "serve": "npm run clean && parcel src/index.html",
+    "serve-secure": "npm run clean && parcel src/index.html --https",
+    "build": "npm run clean && parcel build src/index.html --public-url ./ --no-source-maps"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "mapslice": "^2.0.0",
+    "parcel-plugin-static-files-copy": "^2.2.1",
+    "tabletop": "^1.6.2"
+  },
+  "dependencies": {
+    "leaflet": "^1.6.0"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "raw-map/map-tiles",
+        "staticOutDir": "map-tiles"
+      }
+    ]
+  }
+}
